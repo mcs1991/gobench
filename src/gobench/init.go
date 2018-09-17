@@ -36,7 +36,6 @@ type Flag struct {
 	ffsyncend string
 	ffsyncfreq int
 	frwratio string
-	help bool
 }
 
 func (f *Flag)FlagParse(){
@@ -68,7 +67,11 @@ func (f *Flag)FlagParse(){
 	ffsyncend := flag.String("ffsyncend","on","Execute fsync at the end of the test")
 	ffsyncfreq := flag.Int("ffsyncfreq",100,"Frequency of executing fsync()")
 	frwratio := flag.String("frwratio","1.5","Read and write ratio at test")
-	help := flag.Bool("h",false,"show how to use gobench")
+
+	//打印帮助信息
+	flag.Usage = func() {
+		tool.HelpInfo()
+	}
 
 	flag.Parse()
 
@@ -76,11 +79,6 @@ func (f *Flag)FlagParse(){
 	if flag.NFlag() == 0 {
 		fmt.Println("please use -h for help")
 		os.Exit(1)
-	}
-
-	//打印帮助信息
-	if *help == true {
-		tool.HelpInfo()
 	}
 
 	f.thread = *thread

@@ -12,7 +12,7 @@ import (
 
 //create gobench database
 func CreateDB(gvinfo map[string]interface{})(err error){
-	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/mysql",gvinfo["user"],gvinfo["password"],gvinfo["host"],gvinfo["port"])
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/information_schema",gvinfo["user"],gvinfo["password"],gvinfo["host"],gvinfo["port"])
 	fmt.Printf("dsn:%s\n",dsn)
 	conn ,err := sql.Open("mysql",dsn)
 	if err != nil {
