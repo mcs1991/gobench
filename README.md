@@ -1,6 +1,6 @@
 **gobench**
 
-    Use Sysbench to benchmark mysql
+    Automate benchmarking with sysbench 
 
 **how to install**
 
