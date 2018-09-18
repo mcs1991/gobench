@@ -255,7 +255,7 @@ func CheckFlag(gvinfo map[string]interface{}){
 		fmt.Printf("You can not test file io when fileio parameter is not defined!\n")
 		os.Exit(-1)
 	}
-	if gvinfo["fileio"] == true && gvinfo["ftestmode"] == "" {
+	if gvinfo["fileio"] == true && gvinfo["command"] == "run" && gvinfo["ftestmode"] == "" {
 		fmt.Printf("Missing required argument: --file-test-mode!\n")
 		os.Exit(-1)
 	}
